@@ -31,7 +31,14 @@ def telegram_webhook():
             chat_username = chat.get("username")
             message_id = message.get("message_id")
 
-            link = f"https://t.me/{chat_username}/{message_id}" if chat_username else f"(no link, id {message_id})"
+            if chat_username:
+                link = f"https://t.me/{chat_username}/{message_id}"
+            elif str(chat_id).startswith("-100"):
+                clean_id = str(chat_id).replace("-100", "")
+                link = f"https://t.me/c/{clean_id}/{message_id}"
+            else:
+                link = f"(no link, chat_id={chat_id}, message_id={message_id})"
+
             alert = f"🚨 {user}: {text}\n🔗 {link}"
             send_pushover_notification(alert)
     except Exception as e:
