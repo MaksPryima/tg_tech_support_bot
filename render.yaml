@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: telegram-support-bot
+    env: python
+    buildCommand: ""
+    startCommand: "python main.py"
+    plan: free
+    envVars:
+      - key: TELEGRAM_TOKEN
+        sync: false
+      - key: PUSHOVER_TOKEN
+        sync: false
+      - key: PUSHOVER_USER
+        sync: false
