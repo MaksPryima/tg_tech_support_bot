@@ -28,6 +28,7 @@ def telegram_webhook():
         if TRIGGER_TAG in text:
             user = message.get("from", {}).get("first_name", "Unknown")
             chat = message.get("chat", {})
+            chat_id = chat.get("id")
             chat_username = chat.get("username")
             message_id = message.get("message_id")
 
