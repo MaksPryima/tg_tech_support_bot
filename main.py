@@ -32,6 +32,12 @@ def telegram_webhook():
             chat_username = chat.get("username")
             message_id = message.get("message_id")
 
+            print("==== DEBUG ====")
+            print("chat_id:", chat.get("id"))
+            print("username:", chat.get("username"))
+            print("message_id:", message.get("message_id"))
+            print("================")
+
             if chat_username:
                 link = f"https://t.me/{chat_username}/{message_id}"
             elif str(chat_id).startswith("-100"):
