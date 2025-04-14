@@ -1,14 +1,6 @@
 from flask import Flask, request
 import requests
 import os
-import logging
-
-logging.basicConfig(
-    filename='log.txt',
-    filemode='a',
-    format='%(asctime)s | %(message)s',
-    level=logging.INFO
-)
 
 app = Flask(__name__)
 
@@ -39,10 +31,6 @@ def telegram_webhook():
             chat_id = chat.get("id")
             chat_username = chat.get("username")
             message_id = message.get("message_id")
-
-            logging.info(f"chat_id: {chat_id}")
-            logging.info(f"username: {chat.get('username')}")
-            logging.info(f"message_id: {message_id}")
 
             if chat_username:
                 link = f"https://t.me/{chat_username}/{message_id}"
