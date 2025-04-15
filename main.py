@@ -14,7 +14,9 @@ def send_pushover_notification(text):
         "token": PUSHOVER_TOKEN,
         "user": PUSHOVER_USER,
         "message": text,
-        "priority": 1,
+        "priority": 2,
+        "retry": 60,
+        "expire": 3600,
         "sound": "siren"
     })
 
