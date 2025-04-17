@@ -17,7 +17,7 @@ def send_pushover_notification(text):
         "priority": 2,
         "retry": 30,
         "expire": 3600,
-        "sound": "siren"
+        "sound": "echo"
     })
 
 @app.route(f"/webhook/{TELEGRAM_TOKEN}", methods=["POST"])
